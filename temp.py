@@ -5,10 +5,10 @@ from email.mime.text import MIMEText
 import socket
 
 mail_from = 'server_mail'
-password = 'account_password'
-mail_to = ['user_mail']
-high = 20
-too_high = 40
+password = 'account_pass'
+mail_to = ['user_address']
+high = 60
+too_high = 70
 
 # At First we have to get the current CPU-Temperature with this defined function
 # I need to modify this function to use sensors -j and read the resulting json!!
