@@ -4,6 +4,8 @@ Check the processor temperature. If it is high, the script send an e-mail to the
 
 This is based on the script form https://gist.github.com/LeonardoGentile/7a5330e6bc55860feee5d0dd79e7965d with the same aim. The difference is that this script works for servers.
 
+This script requires the lm-sensors package installed.
+
 To make this as a cronjob running every 30 min do this
 
 mkdir -p ~/scripts
