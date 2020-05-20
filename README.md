@@ -12,10 +12,10 @@ paste the code from the script above.
 
 Then crontab -e and add this:
 
-30 * * * * python ~/scripts/temp.py
+30 * * * * python3 ~/scripts/temp.py
+
 close crontab editor (ctrl-x if nano or esc, then :wq if vim)
 
-That's it
 
-I need to check how to remove it from crontab!!!!
+
 
