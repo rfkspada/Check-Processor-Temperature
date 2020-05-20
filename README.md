@@ -12,7 +12,7 @@ vi ~/scripts/temp.py
 
 paste the code from the script above.
 
-**Edit the variables At lines 7 to 11 as you desire: **
+**Edit the variables At lines 7 to 11 as you desire:**
 
   *mail_from -> a gmail account
   *password -> password fo the account
