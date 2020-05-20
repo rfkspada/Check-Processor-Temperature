@@ -24,6 +24,10 @@ paste the code from the script above.
 
 It is the user responsability to check the correct temperatures interval (high and too_high).
 
+At this point you should test if everything is working typing:
+
+python3 ~/scripts/temp.py
+
 Then in the terminal type: 
 
 crontab -e 
