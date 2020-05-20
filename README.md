@@ -14,11 +14,11 @@ paste the code from the script above.
 
 **Edit the variables At lines 7 to 11 as you desire:**
 
-  *mail_from -> a gmail account
-  *password -> password fo the account
-  *mail_to -> python list to whom the email should be send
-  *high -> First warning temperature
-  *too_high -> Critical warning temperature
+  * mail_from -> a gmail account
+  * password -> password fo the account
+  * mail_to -> python list to whom the email should be send
+  * high -> First warning temperature
+  * too_high -> Critical warning temperature
 
 Then in the terminal: 
 
