@@ -15,22 +15,24 @@ paste the code from the script above.
 **Edit the variables At lines 7 to 11 as you desire:**
 
   * mail_from -> a gmail account
-  * password -> password fo the account
+  * password -> password for the account
   * mail_to -> python list to whom the email should be send
   * high -> First warning temperature
   * too_high -> Critical warning temperature
 
-Then in the terminal: 
+It is the user responsability to check the correct temperatures interval (high and too_high).
+
+Then in the terminal type: 
 
 crontab -e 
 
-and add this:
+A text editor will open a text file (if you never use crontab, you will need to choose a text editor).
 
-/30 * * * * python3 ~/scripts/temp.py
+Add the following line to the end of the file:
 
-(if you never use contrab, you will need to choose a text editor)
+\*/30 * * * * python3 ~/scripts/temp.py
 
 close crontab editor (ctrl-x if nano or esc, then :wq if vim)
 
-That should do the work.
+That should do the work. If you want to edit the cronjobs just type crontab -e again. 
 
