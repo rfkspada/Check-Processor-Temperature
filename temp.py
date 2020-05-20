@@ -2,10 +2,13 @@
 import os, sys
 import smtplib
 from email.mime.text import MIMEText
+import socket
 
-critical = False
+mail_from = 'server_mail'
+password = 'account_password'
+mail_to = ['user_mail']
 high = 20
-too_high = 80
+too_high = 40
 
 # At First we have to get the current CPU-Temperature with this defined function
 # I need to modify this function to use sensors -j and read the resulting json!!
@@ -28,41 +31,38 @@ temp=[]
 for i in tempstr:
     temp.append(float(i))
 
-print(temp)
-
 subject = "Alta temperatura no servidor"
-body = " "
+body = ""
+critical = False
+send = False
 # Check if the temperature is abouve 60°C (you can change this value, but it shouldn't be above 70)
 
 for i in temp:
     if (i > high):
+        send = True
         if i > too_high:
             critical = True
-            body = body + "Critical warning! The actual temperature is: {}!!!!  Shutting down!!!! \n\n".format(i)
+            body = body + "Critical warning! The actual temperature is: {}!!!!  Please shut down!!!!\n".format(i)
         else:
-            body = "Warning! The actual temperature is: {} \n\n".format(i)
+            body = body + "Warning! The actual temperature is: {}\n".format(i)
 
-    print(body)
+if send:
+    host = socket.gethostname()
+    body = "Message from {}\n".format(host) + body
+    # Enter your smtp Server-Connection
+    server = smtplib.SMTP_SSL('smtp.gmail.com') # if your using gmail: smtp.gmail.com
+    # Login
+    server.login(mail_from, password)
 
-sys.exit(' ')
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = mail_from 
+    msg['To'] = ", ".join(mail_to)
 
-# Enter your smtp Server-Connection
-server = smtplib.SMTP('localhost', 25) # if your using gmail: smtp.gmail.com
-server.ehlo()
-server.starttls()
-server.ehlo
-# Login
-# server.login("your email or username", "your Password")
-
-msg = MIMEText(body)
-msg['Subject'] = subject
-msg['From'] = "Root"
-msg['To'] = "root"
-
-# Finally send the mail
-# The email should be sent only if the temperature is too high!
-server.sendmail("root", "root", msg.as_string())
-server.quit()
+    # Finally send the mail
+    # The email should be sent only if the temperature is too high!
+    server.sendmail(mail_from, mail_to, msg.as_string())
+    server.quit()
 
 # Critical, shut down the pi
 # Need to shutdown ?????
