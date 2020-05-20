@@ -6,9 +6,9 @@ import socket
 
 mail_from = 'server_mail'
 password = 'account_pass'
-mail_to = ['user_address']
-high = 60
-too_high = 70
+mail_to = ['user1_mail','user2_mail']
+high = 80
+too_high = 85
 
 # At First we have to get the current CPU-Temperature with this defined function
 # I need to modify this function to use sensors -j and read the resulting json!!
