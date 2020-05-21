@@ -24,7 +24,7 @@ paste the code from the script above.
 
 It is the user responsability to check the correct temperatures interval (high and too_high).
 
-At this point you should test if everything is working typing:
+At this point you should test if everything is working. Change tem temperature values (high and too_high) to make the script send the email. Don't forget to change back later. Execute the script typing:
 
 python3 ~/scripts/temp.py
 
